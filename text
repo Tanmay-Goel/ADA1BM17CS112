@@ -1,0 +1,31 @@
+int anapin=0;
+int led1=9;
+int led2=6;
+
+void setup() {
+  // put your setup code here, to run once:
+pinMode(led1,OUTPUT);
+pinMode(led2,OUTPUT);
+pinMode(anapin,INPUT);
+Serial.begin(9600);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+float val1,val2;
+val1=analogRead(anapin);
+val2=1023-val1;
+
+float op1,op2;
+op1=map(val1,0,1023,0,255);
+op2=map(val2,0,1023,0,255);
+
+Serial.print(op1);
+Serial.print("  ");
+Serial.print(op2;);
+Serial.println("");
+
+analogWrite(led1,op1);
+analogWrite(led2,op2);
+delay(30);
+}
