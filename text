@@ -29,3 +29,42 @@ analogWrite(led1,op1);
 analogWrite(led2,op2);
 delay(30);
 }
+
+
+
+
+
+
+---------------------------
+
+
+import random as R
+gameboard=['1','2','3','4','5','6','7','8','9']
+posleft=[1,2,3,4,5,6,7,8,9]
+corner=[1,3,7,9]
+plus=[2,4,6,8]
+#diplay function
+turn=R.randrange(0,2)
+pos=0
+c='X'
+while(len(posleft)!=0):
+    if turn==0:
+        print("Human's Turn\n")
+        pos=int(input("Enter Position 1-9"))    
+        if pos not in posleft:
+            while pos not in posleft:
+                print("Invalid position. Enter again")
+                pos=int(input("Enter Position 1-9")) 
+        posleft.remove(pos)
+        #place in the right position
+        turn=1
+        c='O'
+        #check win
+        #if yes end
+        #if no continue
+    else:
+        #if human is winning,counter
+        #else below
+        if gameboard[4]!='X' and gameboard[4]!='0':
+            gameboard[4]=c
+        
